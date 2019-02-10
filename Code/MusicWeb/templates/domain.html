@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Domain</title>
+    <link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+    <link href="{% static "font/fontawesome-webfont.tff" %}" rel="stylesheet" />
+    <link href="{% static "font/fontawesome-webfont.eot" %}" rel="stylesheet" />
+    <link href="{% static "font/fontawesome-webfont.svg" %}" rel="stylesheet" />
+    <link href="{% static "font/fontawesome-webfont.woff" %}" rel="stylesheet" />
+	<link href="{% static "css/domaindefault.css" %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static "css/fonts.css" %}"  rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">D A M</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="{% url 'index' %}" accesskey="1" title="">Home</a></li>
+				<li class="active"><a href="{% url 'explore' %}" accesskey="2" title="">Explore</a></li>
+                <li><a href="/play/782/" accesskey="3" title="">Play</a></li>
+				<li><a href="/search" accesskey="4" title="">Search</a></li>
+                <li><a href="/help" accesskey="5" title="">Help</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<div id="wrapper" style="background-color: #eae9e7">
+	<div id="four-column" class="container" >
+		<div class="title">
+			<h2>{{ Domain}}</h2>
+			<span class="byline">Including English, Chinese, Japanese songs.</span>
+		</div>
+        <br>
+        {% for item in Songs %}
+            <div class="box">
+                <div class="albumbox"><a href='/play/{{ item.id}}'><img class="albumImg" src='{{  item.AlbumImgPath }}'></a></div>
+                <a href='/play/{{ item.id }}' style="text-decoration:none;"><p class="songName" >{{  item.SongName }}</p></a>
+			    <p class="singerName">{{  item.SingerName }}</p>
+                <p class="albumName">{{  item.AlbumName}}</p>
+                <br><br><br>
+            </div>
+        {% endfor %}
+	</div>
+
+</div>
+
+<div id="welcome">
+	<div class="container">
+		<div class="title">
+			<h2>Music for everyone.</h2>
+			<span class="byline">Discover, stream, share a constantly expanding mix of music from emerging and major artists around the world.</span>
+		</div>
+		<p>This is a small <strong>Digital Asset Management Music Website</strong>. Thanks for listening. Have fun :) </p>
+		<ul class="actions">
+			<li><a href="/" class="button">Return Home</a></li>
+		</ul>
+	</div>
+</div>
+<div id="copyright" class="container">
+	<p>&copy; All rights reserved. | Photos by <a href="https://www.xiami.com/">XIAMI</a> | Template by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> | Design by <a href="#">Xie Chulin</a>.</p>
+</div>
+</body>
+</html>

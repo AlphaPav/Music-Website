@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     {% load static %}
+    <title>Explore</title>
+	<link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link href="{% static "font/fontawesome-webfont.tff" %}" rel="stylesheet" />
+    <link href="{% static "font/fontawesome-webfont.eot" %}" rel="stylesheet" />
+    <link href="{% static "font/fontawesome-webfont.svg" %}" rel="stylesheet" />
+    <link href="{% static "font/fontawesome-webfont.woff" %}" rel="stylesheet" />
+	<link href="{% static "css/explore.css" %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static "css/fonts.css" %}"  rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">D A M</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="{% url 'index' %}" accesskey="1" title="">Home</a></li>
+				<li class="active"><a href="/explore" accesskey="2" title="">Explore</a></li>
+                 <li><a href="/play/782/" accesskey="3" title="">Play</a></li>
+				<li><a href="/search" accesskey="4" title="">Search</a></li>
+                <li><a href="/help" accesskey="5" title="">Help</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="match container"  id="mymatchcontainer" >
+    <a class="prev" >&#10094;</a>
+    <div class="content" >
+        <div class="slide">
+
+            <ul class="match-list">
+                <li class="match-item">
+                    <a href="/domain/Blues"><img src="{% static "images/DomainImg/Blues.jpg" %}" alt="" width="100%" /></a>
+                    <div class="info">
+                        <p><span class="color-blue">Blues</span> </p><p>22 songs</p>
+
+                    </div>
+                </li>
+                <li class="match-item">
+                    <a href="/domain/Classical"><img src="{% static "images/DomainImg/Classical.jpg" %}" alt="" width="100%" /></a>
+                    <div class="info">
+                        <p><span class="color-blue">Classical</span>  </p><p> 20 songs </p>
+                    </div>
+                </li>
+                <li class="match-item">
+                    <a href="/domain/Electronic"><img src="{% static "images/DomainImg/Electronic.jpg" %}" alt="" width="100%" /></a>
+                    <div class="info">
+                        <p><span class="color-blue">Electronic</span> </p><p>  20 songs </p>
+                    </div>
+                </li>
+                <li class="match-item">
+                    <a href="/domain/Folk"><img src="{% static "images/DomainImg/Folk.jpg" %}"  alt="" width="100%" /></a>
+                     <div class="info">
+                        <p><span class="color-blue">Folk</span>  </p><p> 20 songs </p>
+                    </div>
+                </li>
+                <li class="match-item">
+                    <a href="/domain/Game"><img src="{% static "images/DomainImg/Game.jpg" %}"  alt="" width="100%" /></a>
+                    <div class="info">
+                        <p><span class="color-blue">Game</span>  </p><p> 21 songs </p>
+                    </div>
+                </li>
+                <li class="match-item">
+                    <a href="/domain/Japanese"><img src="{% static "images/DomainImg/Japanese.jpg" %}"  alt="" width="100%" /></a>
+                    <div class="info">
+                        <p><span class="color-blue">Japanese</span>  </p><p>20 songs </p>
+                    </div>
+                </li>
+                <li class="match-item">
+                    <a href="/domain/Pop"><img src="{% static "images/DomainImg/Pop.jpg" %}"  alt="" width="100%" /></a>
+                    <div class="info">
+                        <p><span class="color-blue">Pop</span>  </p><p> 22 songs </p>
+                    </div>
+                </li>
+                <li class="match-item">
+                    <a href="/domain/Urban"><img src="{% static "images/DomainImg/Urban.jpg" %}"  alt="" width="100%" /></a>
+                    <div class="info">
+                        <p><span class="color-blue">Urban</span>  </p><p> 23 songs </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Next and previous buttons -->
+
+    </div>
+    <a class="next" >&#10095;</a>
+</div>
+
+<script type = "text/javascript">
+    $(".match-item").click(function(){
+    $(".match-item-active").prop('class','match-item');
+    $(this).prop('class','match-item-active');
+});
+
+$(".next").click(function(){
+    var list = $(".match-list");
+    if(list.scrollWidth - list.scrollLeft() < 1150){
+        list.animate({scrollLeft: list.scrollWidth},1000);
+    }else{
+        list.animate({scrollLeft:list.scrollLeft()+1150},1000);
+    }
+});
+
+$(".prev").click(function(){
+    var list = $(".match-list");
+    if(list.scrollLeft() < 1177){
+        list.animate({scrollLeft:0},1000);
+    }else{
+        list.animate({scrollLeft:list.scrollLeft()-1150},1000);
+    }
+});
+</script>
+
+
+<div id="copyright" class="container">
+	<p>&copy; All rights reserved. | Photos by <a href="https://www.xiami.com/">XIAMI</a> | Template by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> | Design by <a href="#">Xie Chulin</a>.</p>
+</div>
+
+</body>
+</html>

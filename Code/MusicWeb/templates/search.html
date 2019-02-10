@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    {% load static %}
+	<title>Search</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+	<link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+	<link href="{% static "css/searchdefault.css" %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static "css/fonts.css" %}"  rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div id="contentresult" >
+    <div id="header-wrapper">
+        <div id="header" class="container">
+            <div id="logo">
+                <h1><a href="#">D A M</a></h1>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><a href="/" accesskey="1" title="">Home</a></li>
+                    <li><a href="/explore" accesskey="2" title="">Explore</a></li>
+                    <li><a href="/play/782/" accesskey="3" title="">Play</a></li>
+                    <li  class="active"><a href="/search" accesskey="4" title="">Search</a></li>
+                    <li><a href="/help" accesskey="5" title="">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="searchcontainer">
+       <div class="search bar5">
+            <form id="search_content">
+                {% csrf_token %}
+                <input id="search_text" name="search_text" type="text" placeholder="type for your searching" >
+                 <button id="search_submit" type="submit"></button>
+            </form>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $("#search_content").submit(function(){
+                var search_text = $("#search_text").val();
+                console.log(search_text);
+                 $.ajax({
+                     cache: false,
+                    type: "POST",
+                    dataType:"text",
+                    url:"/dealsearch/",
+                     async: true,
+                    data: {
+                    'search_text': search_text,
+                    },
+                    success:function(data){
+                        $("#contentresult").html(data);//reassign data
+                    }
+                });
+                return false;//not refresh the whole current page
+            });
+        });
+    </script>
+
+    <div id="wrapper" >
+        <div id="four-column" class="container" >
+        {% if Songs %}
+                {% for item in Songs %}
+                    <div class="box">
+                        <div class="albumbox"><a href='/play/{{ item.id }}'><img class="albumImg" src='{{  item.AlbumImgPath }}'></a></div>
+                        <a href='/play/{{ item.id }}' style="text-decoration:none;"><p class="songName" >{{  item.SongName }}</p></a>
+                        <p class="singerName">{{  item.SingerName }}</p>
+                        <p class="albumName">{{  item.AlbumName}}</p>
+                        <br><br><br>
+                    </div>
+                {% endfor %}
+        {% else %}
+        <br>   <br> <br> <br> <br> <br><br> <br> <br><br> <br> <br><br> <br> <br> <br> <br><br> <br> <br>
+        {% endif %}
+
+        </div>
+    </div>
+
+    <div id="copyright" class="container">
+        <p>&copy; All rights reserved. | Photos by <a href="https://www.xiami.com/">XIAMI</a> | Template by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> | Design by <a href="#">Xie Chulin</a>.</p>
+    </div>
+</div>
+</body>
+</html>

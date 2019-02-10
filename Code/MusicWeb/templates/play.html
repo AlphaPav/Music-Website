@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Play</title>
+    <link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+	<link href="{% static "css/playdefault.css" %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static "css/fonts.css" %}"  rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">D A M</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="{% url 'index' %}" accesskey="1" title="">Home</a></li>
+				<li><a href="{% url 'explore' %}" accesskey="2" title="">Explore</a></li>
+                 <li class="active"><a href="/play/782/" accesskey="3" title="">Play</a></li>
+				<li><a href="/search" accesskey="4" title="">Search</a></li>
+                <li><a href="/help" accesskey="5" title="">Help</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="wrapper">
+	<div id="two-column" class="container" >
+		<div class="title">
+			<h2>{{ SongContent.SongName}}</h2>
+			<p class="byline" >{{ SongContent.SingerName}} / <i>{{ SongContent.AlbumName}}</i></p>
+		</div>
+        <div class="tbox1">
+            <div class="music" >
+            <!--audio标签-->
+                <audio src='{{ SongContent.SongPath}}'></audio>
+            <!--歌曲信息-->
+                <div class="song-info-box">
+                    <div class="poster-box"><img src='{{ SongContent.AlbumImgPath }}' class="music-poster"></div>
+                </div>
+            <!--时间进度条-->
+                <div class="content-box">
+                    <div class="left-box played-progress">00：00</div>
+                    <div class="center-box"> <div class="slider-bar">
+                        <div class="slider-progress">
+                            <div class="slider-dot-control"></div>
+                        </div>
+                    </div></div>
+                    <div class="right-box all-progress">00：00</div>
+                </div>
+            <!--控制按钮-->
+                <div class="control-box" >
+                    <span class="prev_bt icon-previous iconfont" title="上一首"></span>
+                    <span class="play_bt icon-bofang iconfont" title="播放/暂停"></span>
+                    <span class="next_bt icon-next iconfont" title="下一首"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="tbox2">
+               <p class="lyrics">{{SongContent.Lyrics }}</p>
+        </div>
+
+	</div>
+    <br><br>
+</div>
+
+
+<script>
+    //预先设置获取需要使用的数据和参数
+    var lastX=this.offsetLeft;
+    var power=false;
+    var silider=document.querySelector('.slider-bar');
+    var progress=document.querySelector('.slider-progress');
+    var dot=document.querySelector('.slider-dot-control');
+    var audio=document.querySelector('audio');
+    var playBtn=document.querySelector('.play_bt');
+    var poster=document.querySelector('.music-poster');
+    var songName=document.querySelector('.song-name');
+    var songAuthor=document.querySelector('.song-author');
+    var prevSong=document.querySelector('.prev_bt');
+    var nextSong=document.querySelector('.next_bt');
+    var tempnum= {{ SongContent.id}};
+
+    console.log(tempnum)
+
+//        设置时间滑块事件
+    dot.addEventListener('mousedown',function (e) {
+        power=true;
+        lastX=e.clientX;
+        //console.log(e.clientX);
+    });
+    document.addEventListener('mousemove',function (e) {
+        if(power){
+            var curX=e.clientX;
+            var addW=curX-lastX;
+            var setW=progress.offsetWidth+addW;
+            var maxW=silider.offsetWidth;
+            if(setW>=0&&setW<=maxW){
+                lastX=curX;
+                var percen=setW/maxW;
+            }else if(setW<0){
+                percen=0;
+            }else {
+                percen=1;
+            }
+            progress.style.width=percen*100+"%";
+        }
+    });
+    document.addEventListener('mouseup',function (e) {
+        if(power){
+             var curX=e.clientX;
+            var addW=curX-lastX;
+            var setW=progress.offsetWidth+addW;
+            var maxW=silider.offsetWidth;
+            if(setW>=0&&setW<=maxW){
+                lastX=curX;
+                var percen=setW/maxW;
+            }else if(setW<0){
+                percen=0;
+            }else {
+                percen=1;
+            }
+            progress.style.width=percen*100+"%";
+            upDateProgress(percen);
+        }
+        power=false;
+    });
+    silider.addEventListener('click',function (e) {
+        var setW=e.clientX-this.offsetLeft;
+        var maxW=silider.offsetWidth;
+        if(setW>=0&&setW<=maxW){
+            var percen=setW/maxW;
+            progress.style.width=percen*100+"%";
+            upDateProgress(percen)
+        }
+    });
+//        上一曲
+    prevSong.onclick=function () {
+        var nextnum=tempnum-1
+        window.location.href='/play/'+nextnum.toString();
+
+    };
+//        下一曲
+    nextSong.onclick=function () {
+       var nextnum=tempnum+1
+         window.location.href='/play/'+nextnum.toString();
+    };
+//        更改进度条
+    function upDateProgress(percence) {
+        audio.currentTime=percence*audio.duration;
+    }
+
+//        监听播放事件
+    audio.onplay=function () {
+        playBtn.className='play_bt icon-zanting iconfont';
+        poster.className='playing music-poster';
+    };
+//        监听暂停事件
+    audio.onpause=function () {
+        playBtn.className='play_bt icon-bofang iconfont';
+        poster.className='music-poster';
+    };
+//        播放或暂停
+    playBtn.onclick=function () {
+         console.log(tempnum);
+        if(audio.paused){
+            audio.play()
+        }else {
+            audio.pause()
+        }
+    };
+//        监听可以播放事件
+    audio.oncanplay=function () {
+        document.querySelector('.all-progress').innerHTML=duration(parseInt(audio.duration));
+        if(!power){
+            var prence=audio.currentTime/audio.duration;
+            progress.style.width=prence*100+"%";
+        }
+        if(audio.paused){
+            playBtn.className='play_bt icon-bofang iconfont';
+            poster.className='music-poster';
+        }else {
+            playBtn.className='play_bt icon-zanting iconfont';
+            poster.className='playing music-poster';
+        }
+    };
+//        监听播放时间变化事件
+    audio.ontimeupdate=function () {
+        document.querySelector('.played-progress').innerHTML=duration(parseInt(audio.currentTime));
+        if(!power){
+            var prence=audio.currentTime/audio.duration;
+            progress.style.width=prence*100+"%";
+        }
+    };
+//        监听播放结束事件
+    audio.onended=function () {
+        curIndex++;
+        if(curIndex>=songs.length){
+            curIndex=0;
+        }
+        changeSong(curIndex);
+        setTimeout(function () {
+            audio.play();
+        },200)
+    };
+//        格式化时间格式
+    var duration=function (time) {
+        var fen=parseInt(time/60);
+        var miao=time%60;
+        if(fen<=9){
+            fen="0"+fen;
+        }
+        if(miao<=9){
+            miao="0"+miao;
+        }
+        return fen+'：'+miao;
+    }
+
+</script>
+
+<div id="copyright" class="container">
+	<p>&copy; All rights reserved. | Photos by <a href="https://www.xiami.com/">XIAMI</a> | Template by <a href="http://templated.co" rel="nofollow">TEMPLATED</a> | Design by <a href="#">Xie Chulin</a>.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,718 @@
+	html, body
+	{
+		height: 100%;
+	}
+
+	body
+	{
+		margin: 0px;
+		padding: 0px;
+		background: #111111;
+		font-family: 'Didact Gothic', sans-serif;
+		font-size: 12pt;
+		font-weight: 200;
+		color: #FFF;
+	}
+
+
+	h1, h2, h3
+	{
+		margin: 0;
+		padding: 0;
+	}
+
+	p, ol, ul
+	{
+		margin-top: 0;
+	}
+
+	ol, ul
+	{
+		padding: 0;
+		list-style: none;
+	}
+
+	p
+	{
+		line-height: 180%;
+	}
+
+	strong
+	{
+	}
+
+	a
+	{
+		color: #ee0000;
+	}
+
+	a:hover
+	{
+		text-decoration: none;
+	}
+
+	.container
+	{
+		overflow: hidden;
+		margin: 0em auto;
+        margin-bottom: 10px;
+		width: 1200px;
+	}
+
+/*********************************************************************************/
+/* Image Style                                                                   */
+/*********************************************************************************/
+
+	.image
+	{
+		display: inline-block;
+	}
+
+	.image img
+	{
+		display: block;
+		width: 100%;
+	}
+
+	.image-full
+	{
+		display: block;
+		width: 100%;
+		margin: 0 0 2em 0;
+	}
+
+	.image-left
+	{
+		float: left;
+		margin: 0 2em 2em 0;
+	}
+
+	.image-centered
+	{
+		display: block;
+		margin: 0 0 2em 0;
+	}
+
+	.image-centered img
+	{
+		margin: 0 auto;
+		width: auto;
+	}
+
+/*********************************************************************************/
+/* List Styles                                                                   */
+/*********************************************************************************/
+
+	ul.style1
+	{
+	}
+
+
+/*********************************************************************************/
+/* Social Icon Styles                                                            */
+/*********************************************************************************/
+
+	ul.contact
+	{
+		margin: 0;
+		padding: 2em 0em 0em 0em;
+		list-style: none;
+	}
+
+	ul.contact li
+	{
+		display: inline-block;
+		padding: 0em 0.30em;
+		font-size: 1em;
+	}
+
+	ul.contact li span
+	{
+		display: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	ul.contact li a
+	{
+		color: #FFF;
+	}
+
+	ul.contact li a:before
+	{
+		display: inline-block;
+		background: #3f3f3f;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		border-radius: 20px;
+		text-align: center;
+		color: #FFFFFF;
+	}
+
+	ul.contact li a.icon-twitter:before { background: #2DAAE4; }
+	ul.contact li a.icon-facebook:before { background: #39599F; }
+	ul.contact li a.icon-dribbble:before { background: #C4376B;	}
+	ul.contact li a.icon-tumblr:before { background: #31516A; }
+	ul.contact li a.icon-rss:before { background: #F2600B; }
+
+/*********************************************************************************/
+/* Button Style                                                                  */
+/*********************************************************************************/
+
+	.button
+	{
+		display: inline-block;
+		padding: 1em 2em 1em 2em;
+		letter-spacing: 0.10em;
+		margin-top: 2em;
+		padding: 1.40em 3em;
+		border: 2px solid rgba(255,255,255,1);
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 1em;
+		color: #FFF;
+	}
+
+	.button-alt
+	{
+		padding: 1em 2em;
+		border-color: rgba(0,0,0,.8);
+		color: rgba(0,0,0,.8);
+	}
+
+/*********************************************************************************/
+/* 4-column                                                                      */
+/*********************************************************************************/
+
+	.box
+	{
+		width: 230px;
+		float: left;
+		margin-right: 10px;
+	}
+
+
+/*********************************************************************************/
+/* 3-column                                                                      */
+/*********************************************************************************/
+
+	.boxA,
+	.boxB,
+	.boxC
+	{
+		width: 384px;
+	}
+
+	.boxA,
+	.boxB
+	{
+		float: left;
+		margin-right: 20px;
+	}
+
+	.boxC
+	{
+		float: right;
+	}
+
+/*********************************************************************************/
+/* 2-column                                                                      */
+/*********************************************************************************/
+
+	.tbox1,
+	.tbox2
+	{
+		width: 600px;
+	}
+
+	.tbox1
+	{
+		float: left;
+	}
+
+	.tbox2
+	{
+		float: right;
+	}
+
+
+/*********************************************************************************/
+/* Heading Titles                                                                */
+/*********************************************************************************/
+
+	.title
+	{
+		margin-bottom: 0em;
+	}
+
+	.title h2
+	{
+		font-size: 2.5em;
+	}
+
+	.title .byline
+	{
+		font-size: 1.3em;
+
+		color: rgba(255,255,255,0.60);
+	}
+
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+	#wrapper
+	{
+		position: relative;
+		padding: 2em 0em 2em 0em;
+		background: #FFF;
+	}
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+	#header-wrapper
+	{
+		position: relative;
+		padding: 1.5em 0em 1.5em 0em;
+		background: #111111 url(/static/images/header-bg5.png) no-repeat center;
+		background-size: cover;
+	}
+
+	#header
+	{
+		position: relative;
+		/*background-color:#C4376B;*/
+		padding: 5em 0em;
+	}
+
+/*********************************************************************************/
+/* Logo                                                                          */
+/*********************************************************************************/
+
+	#logo
+	{
+		position: absolute;
+		top: 3.6em;
+		left: 0;
+	}
+
+	#logo h1
+	{
+		font-size: 2.6em;
+		color: #79C255;
+	}
+
+	#logo a
+	{
+		text-decoration: none;
+		color: rgba(255,255,255,1);
+	}
+
+/*********************************************************************************/
+/* Menu                                                                          */
+/*********************************************************************************/
+
+	#menu
+	{
+		position: absolute;
+		top: 4.5em;
+		right: 0;
+	}
+
+	#menu ul
+	{
+		display: inline-block;
+	}
+
+	#menu li
+	{
+		display: block;
+		float: left;
+		text-align: center;
+	}
+
+	#menu li a, #menu li span
+	{
+		padding: 1em 1.5em;
+		letter-spacing: 1px;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 0.8em;
+		color: rgba(255,255,255,0.80);
+	}
+
+	#menu li:hover a, #menu li.active a, #menu li.active span
+	{
+	}
+
+	#menu .active a
+	{
+		border: 2px solid rgba(255,255,255,1);
+		border-radius: 6px;
+		color: rgba(255,255,255,1);
+	}
+
+	#menu .icon
+	{
+	}
+
+/*********************************************************************************/
+/* Banner                                                                        */
+/*********************************************************************************/
+
+	#banner
+	{
+		padding-top: 10em;
+		text-align: center;
+	}
+
+	#banner .title h2
+	{
+		font-size: 4em;
+	}
+
+	#banner .title .byline
+	{
+		font-size: 2em;
+
+	}
+
+	#banner .button
+	{
+		margin-top: 6em;
+		padding: 1.40em 3em;
+		border: 2px solid rgba(255,255,255,1);
+		border-radius: 6px;
+		font-weight: 700;
+		font-size: 1em;
+
+	}
+
+/*********************************************************************************/
+/* Page                                                                          */
+/*********************************************************************************/
+
+	#page
+	{
+	}
+
+/*********************************************************************************/
+/* Content                                                                       */
+/*********************************************************************************/
+
+	#content
+	{
+	}
+
+/*********************************************************************************/
+/* Sidebar                                                                       */
+/*********************************************************************************/
+
+	#sidebar
+	{
+	}
+
+/*********************************************************************************/
+/* Footer                                                                        */
+/*********************************************************************************/
+
+	#footer
+	{
+	}
+
+/*********************************************************************************/
+/* Copyright                                                                     */
+/*********************************************************************************/
+
+	#copyright
+	{
+		overflow: hidden;
+		padding: 2em 0em;
+		border-top: 1px solid rgba(0,0,0,0.08);
+	}
+
+	#copyright p
+	{
+		text-align: center;
+		font-size: 1em;
+		color: rgba(255,255,255,0.3);
+	}
+
+	#copyright a
+	{
+		text-decoration: none;
+		color: rgba(255,255,255,0.6);
+	}
+
+
+
+/*********************************************************************************/
+/* Extra                                                                         */
+/*********************************************************************************/
+
+	#two-column
+	{
+		text-align: center;
+		color: rgba(0,0,0,0.6);
+
+	}
+
+	#two-column .fa
+	{
+		display: block;
+		padding: 1em 0em;
+		color: rgba(0,0,0,1);
+		font-size: 2em;
+	}
+
+	#two-column .title h2
+	{
+		font-weight: bold;
+		color: rgba(0,0,0,0.8);
+	}
+
+	#two-column .title .byline
+	{
+		text-align: center;
+        line-height: 50px;
+		color: rgba(0,0,0,.5);
+	}
+	#two-column .albumImg
+	{
+		width:350px;
+	    height:350px;
+	}
+	#two-column .songName
+	{
+
+		height: 25px;
+		line-height: 25px;
+		text-align: center;
+		overflow:hidden;
+	    margin:0.5em 0em 0em 0em;
+	}
+	#two-column .singerName
+	{
+
+		margin:0.2em 0em 0em 0em;
+		text-align: center;
+		height: 25px;
+		line-height: 25px;
+	    font-style:italic;
+		overflow:hidden;
+	}
+    #two-column .lyrics
+	{
+		overflow-y: scroll;
+        height: 460px;
+        white-space: pre-line;
+	}
+
+    .lyrics::-webkit-scrollbar{
+        width: 8px;
+        height: 8px;
+    }
+
+    .lyrics::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,.05);
+        border-radius: 10px;
+        -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.1);
+    }
+
+    .lyrics::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,.2);
+        border-radius: 10px;
+        -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.1);
+    }
+
+    .lyrics::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0,0,0,.4);
+        -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.1);
+    }
+
+    .lyrics::-webkit-scrollbar-track {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+        background-color: white;
+    }
+
+    .lyrics::-webkit-scrollbar-track:hover {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.4);
+        background-color: rgba(0,0,0,.01);
+    }
+
+
+	#two-column .button-alt
+	{
+		display: inline-block;
+
+		letter-spacing: 0.10em;
+
+		border: 2px solid;
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 1em;
+		color: #FFF;
+
+		background-color: #FFFFFF;
+		margin:0.7em 0em 3em 0em;
+		padding: 0.6em 0.6em;
+		border-color: rgba(0,0,0,.8);
+		color: rgba(0,0,0,.8);
+	}
+
+
+    #music{
+        background-color: #333;
+        margin: 0;
+    }
+        /*滑动时间的样式*/
+        .slider-bar{
+            height:4px;
+            width: 100%;
+            background-color: #6d6d6d;
+            border-radius: 2px;
+        }
+        .slider-progress{
+            position: relative;
+            height: 100%;
+            width: 0;
+            background-color: #ff7471;
+            border-radius: 2px;
+        }
+        .slider-dot-control{
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            left: 100%;
+            background-color: #ff7471;
+            border: 6px solid #fff;
+            top: 50%;
+            margin-top: -9px;
+            margin-left: -9px;
+        }
+        /*滑动时间的样式*/
+        /*播放时间的样式*/
+        .played-progress,.all-progress{
+            display: flex;
+            -webkit-justify-content: center;
+            justify-content: center;
+            padding: 0 10px;
+            font-size: 14px;
+        }
+        .content-box{
+            display: flex;
+            height: 20px;
+            color: #6d6d6d;
+            margin-top: 50px;
+        }
+        .center-box{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .left-box{
+            width: 100px;
+            height: 100%;
+            text-align: center;
+            font-size: 14px;
+        }
+        .right-box{
+            width: 100px;
+            height: 100%;
+            text-align: center;
+            font-size: 14px;
+        }
+        /*播放时间的样式*/
+        /*播放控制按钮的样式*/
+        .control-box{
+            color: #6d6d6d;
+            display: flex;
+            align-items: center;
+            height: 40px;
+            -webkit-justify-content: center;
+            justify-content: center;
+
+            margin:2em 0em 0em 0em;
+        }
+        .control-box span{
+            display: flex;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            font-size: 30px;
+
+        }
+        .control-box span.play_bt.icon-bofang{
+            font-size: 35px;
+
+            background: url(/static/images/icon/play-icon.png) center no-repeat;
+            background-size: 100%;
+        }
+		 .control-box span.play_bt.icon-zanting{
+            font-size: 35px;
+
+            background: url(/static/images/icon/pause-icon.png) center no-repeat;
+            background-size: 100%;
+        }
+        .control-box span.next_bt{
+            font-size: 35px;
+            background: url(/static/images/icon/last-track-icon.png) center no-repeat;
+            margin-left: 0.5em;
+            background-size: 80%;
+        }
+        .control-box span.prev_bt{
+            font-size: 35px;
+            margin-right: 0.5em;
+            background: url(/static/images/icon/first-track-icon.png) center no-repeat;
+            background-size: 80%;
+        }
+        /*播放控制按钮的样式*/
+
+        /*歌曲信息的样式*/
+        .song-info-txt{
+            text-align: center;
+            font-size: 14px;
+            color:#6d6d6d;
+            line-height: 40px;
+        }
+        /*歌曲信息的样式*/
+        /*歌曲封面的样式*/
+        .poster-box img{
+            display: block;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            margin: 0 auto;
+			margin-top: 3em;
+        }
+        /*歌曲封面的样式*/
+        /**************播放动画***************/
+        @-webkit-keyframes rotateRound {
+            0% {-webkit-transform: rotate(0deg);}
+            100% {-webkit-transform: rotate(360deg);}
+        }
+        @-moz-keyframes rotateRound {
+            0% {-moz-transform: rotate(0deg);}
+            100% {-moz-transform: rotate(360deg);}
+        }
+        @keyframes rotateRound {
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
+        .playing{
+            -moz-animation: rotateRound 20s linear infinite;
+            -webkit-animation: rotateRound 20s linear infinite;
+            animation: rotateRound 20s linear infinite;
+
+        }

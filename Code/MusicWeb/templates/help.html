@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>Help</title>
+    <link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link href="{% static "font/fontawesome-webfont.tff" %}" rel="stylesheet" />
+    <link href="{% static "font/fontawesome-webfont.eot" %}" rel="stylesheet" />
+    <link href="{% static "font/fontawesome-webfont.svg" %}" rel="stylesheet" />
+    <link href="{% static "font/fontawesome-webfont.woff" %}" rel="stylesheet" />
+    <link href="{% static "css/help.css" %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static "css/fonts.css" %}"  rel="stylesheet" type="text/css" media="all" />
+
+<script type="text/javascript">
+     function getFile(){
+       document.getElementById("upfile").click();
+     }
+     function sub(obj){
+        var file = obj.value;
+        var fileName = file.split("\\");
+        document.getElementById("yourBtn").innerHTML = fileName[fileName.length-1];
+        document.myForm.submit();
+        event.preventDefault();
+      }
+</script>
+
+</head>
+<body>
+
+<div id="header-wrapper">
+    <div id="header" class="container">
+        <div id="logo">
+            <h1><a href="#">D A M</a></h1>
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="/" accesskey="1" title="">Home</a></li>
+                <li><a href="/explore" accesskey="2" title="">Explore</a></li>
+                <li><a href="/play/782/" accesskey="3" title="">Play</a></li>
+                <li><a href="/search" accesskey="4" title="">Search</a></li>
+                <li  class="active"><a href="/help" accesskey="5" title="">Help</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="upload" >
+    <div class="title">
+        <h2>Convert To PNG</h2>
+        <p class="byline" >You can change any format of image into PNG format!</p>
+    </div>
+</div>
+
+<form id="uploadform" action="#myaction" method="POST" enctype="multipart/form-data" name="myForm">
+            {% csrf_token %}
+    <div class="content">
+        <div id="yourBtn" onclick="getFile()" >Click to upload an image</div>
+        <div style='height: 0px;width: 0px; overflow:hidden;'>
+            <input id="upfile" type="file" name ="OriImg" value="upload" onchange="sub(this)"/>
+        </div>
+    </div>
+</form>
+
+{% if Img %}
+     <a href='{{ Img.png_url.url }}' style="text-decoration:none;"><p id="pngName" >{{  Img.png_filename  }}</p></a>
+    <img id="pngImage" src="{{ Img.png_url.url }}"><br/>
+{% endif %}
+</body>
+</html>
