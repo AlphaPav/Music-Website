@@ -10,7 +10,7 @@
 
 The program will be terminared by error if you are trying to download paid songs or VIP-only songs. If it is successfully finished, you will get a `png` image, a `mp3` song and a `json` file about needed infomation for each song. The files are all crawled from Netease Cloud Music and named by the song's ID in Netease Cloud Music.
 
-<img src="/ScreenShots/pic1.jpg" width="250"/>
+<img src="/ScreenShots/pic1.jpg" width="300"/>
 
 ### Music Website ###
 
@@ -19,14 +19,14 @@ The program will be terminared by error if you are trying to download paid songs
 - Then open `http://127.0.0.1:8001/` in chrome.
 
 
-<img src="/ScreenShots/1.png" width="600"/>
+<img src="/ScreenShots/1.png" width="800"/>
 	
-<img src="/ScreenShots/2.png" width="600"/>
+<img src="/ScreenShots/2.png" width="800"/>
 	
-<img src="/ScreenShots/3.png" width="600"/>
+<img src="/ScreenShots/3.png" width="800"/>
 	
-<img src="/ScreenShots/4.png" width="600"/>
+<img src="/ScreenShots/4.png" width="800"/>
 	
-<img src="/ScreenShots/5.png" width="600"/>
+<img src="/ScreenShots/5.png" width="800"/>
 	
-<img src="/ScreenShots/7.png" width="600"/>
+<img src="/ScreenShots/7.png" width="800"/>
