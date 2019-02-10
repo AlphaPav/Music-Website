@@ -30,4 +30,6 @@ The program will be terminared by error if you are trying to download paid songs
 	
 <img src="/ScreenShots/5.png" width="1000"/>
 	
+<img src="/ScreenShots/8.png" width="1000"/>
+	
 <img src="/ScreenShots/7.png" width="1000"/>
